@@ -9,15 +9,16 @@ const BORDER = "#D1D5DB";
 const DARK_TEXT = "#111827";
 
 const styles = StyleSheet.create({
-  page: {
-    padding: 30,
-    paddingBottom: 64,
-    fontSize: 9,
-    fontFamily: "Helvetica",
-    color: DARK_TEXT,
-    lineHeight: 1.35,
-    backgroundColor: "#FFFFFF"
-  },
+ page: {
+  padding: 22,
+  paddingBottom: 24,
+  fontSize: 7.6,
+  fontFamily: "Helvetica",
+  color: DARK_TEXT,
+  lineHeight: 1.15,
+  backgroundColor: "#FFFFFF"
+},
+
 
   /* ===== MAIN LAYOUT ===== */
   container: {
@@ -28,16 +29,16 @@ const styles = StyleSheet.create({
   },
 
   leftPanel: {
-    width: "28%",
-    backgroundColor: YELLOW,
-    paddingHorizontal: 14,
-    paddingVertical: 16,
-    borderRightWidth: 2,
-    borderRightColor: BORDER,
-    borderRightStyle: "solid",
-    height: "auto",
-    flexGrow: 1
-  },
+  width: "28%",
+  backgroundColor: YELLOW,
+  paddingHorizontal: 10,
+  paddingVertical: 10,
+  borderRightWidth: 1.5,
+  borderRightColor: BORDER,
+  borderRightStyle: "solid",
+  flexGrow: 1
+},
+
 
   rightPanel: {
     width: "72%",
@@ -51,8 +52,8 @@ const styles = StyleSheet.create({
     fontSize: 10.5,
     fontWeight: "bold",
     color: BLUE,
-    marginTop: 16,
-    marginBottom: 8,
+    marginTop: 12,
+    marginBottom: 6,
     paddingBottom: 4,
     borderBottomWidth: 1,
     borderBottomColor: "rgba(0, 65, 101, 0.3)",
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
 
   leftText: {
     fontSize: 9,
-    marginBottom: 5,
+    marginBottom: 3,
     lineHeight: 1.3
   },
 
@@ -71,67 +72,77 @@ const styles = StyleSheet.create({
     marginRight: 4
   },
 
-  /* ===== HEADER ===== */
-  header: {
-    borderBottomWidth: 3,
-    borderBottomColor: BLUE,
-    borderBottomStyle: "solid",
-    paddingBottom: 18,
-    marginBottom: 22
-  },
+  /* ===== HEADER (Professional + Optimal) ===== */
+header: {
+  borderBottomWidth: 2,
+  borderBottomColor: BLUE,
+  borderBottomStyle: "solid",
+  paddingBottom: 8,
+  marginBottom: 8
+},
 
-  logoRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 10
-  },
 
-  logo: {
-    width: 62,
-    height: 62,
-    marginRight: 18
-  },
+logoRow: {
+  flexDirection: "row",
+  alignItems: "flex-start"  // ✅ better for multiline titles
+},
 
-  headerText: {
-    flex: 1
-  },
+logo: {
+  width: 46,
+  height: 46,
+  marginRight: 10
+},
 
-  clubTitle: {
-    fontSize: 21,
-    fontWeight: "bold",
-    color: BLUE,
-    marginBottom: 5
-  },
+clubTitle: {
+  fontSize: 10,
+  fontWeight: "bold",
+  color: BLUE,
+  marginBottom: 2,
+  lineHeight: 1.05
+},
 
-  meetingTitle: {
-    fontSize: 13.5,
-    fontWeight: "bold",
-    color: DARK_TEXT,
-    marginBottom: 7
-  },
+meetingTitle: {
+  fontSize: 11,
+  fontWeight: "bold",
+  color: DARK_TEXT,
+  marginBottom: 3,
+  lineHeight: 1.1
+},
 
-  subHeader: {
-    fontSize: 9.8,
-    color: BLUE,
-    marginBottom: 2
-  },
+
+subHeader: {
+  fontSize: 9.4,
+  color: BLUE,
+  marginBottom: 2,
+  lineHeight: 1.25
+},
+
+venueText: {
+  fontSize: 9.4,
+  color: BLUE,
+  lineHeight: 1.25,
+  flexShrink: 1
+},
 
   /* ===== SECTION ===== */
   section: {
-    marginBottom: 24,
-    flexShrink: 0
-  },
+  marginBottom: 8,
+  flexShrink: 0
+},
 
-  sectionTitle: {
-    backgroundColor: BLUE,
-    color: "#FFFFFF",
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    fontSize: 12,
-    fontWeight: "bold",
-    marginBottom: 12,
-    borderRadius: 3
-  },
+
+ sectionTitle: {
+  backgroundColor: BLUE,
+  color: "#FFFFFF",
+  paddingVertical: 3,
+  paddingHorizontal: 8,
+  fontSize: 9.5,
+  fontWeight: "bold",
+  marginBottom: 4,
+  borderRadius: 3
+},
+
+
 
   /* ===== TABLE ===== */
   table: {
@@ -151,23 +162,26 @@ const styles = StyleSheet.create({
     borderBottomStyle: "solid"
   },
 
-  tableHeaderText: {
-    color: BLUE,
-    fontWeight: "bold",
-    fontSize: 10,
-    paddingVertical: 9,
-    paddingHorizontal: 7,
-    textAlign: "left"
-  },
+ tableHeaderText: {
+  color: BLUE,
+  fontWeight: "bold",
+  fontSize: 9,
+  paddingVertical: 4,
+  paddingHorizontal: 4,
+  textAlign: "left"
+},
+
 
   tableRow: {
-    flexDirection: "row",
-    borderBottomWidth: 0.75,
-    borderBottomColor: BORDER,
-    borderBottomStyle: "solid",
-    minHeight: 34,
-    alignItems: "center"
-  },
+  flexDirection: "row",
+  borderBottomWidth: 0.6,
+  borderBottomColor: BORDER,
+  borderBottomStyle: "solid",
+  paddingVertical: 2,
+  alignItems: "flex-start"
+},
+
+
 
   lastRow: {
     borderBottomWidth: 0
@@ -178,128 +192,184 @@ const styles = StyleSheet.create({
   },
 
   cellTime: {
-    width: "16%",
-    paddingVertical: 8,
-    paddingHorizontal: 7,
-    fontWeight: "bold",
-    textAlign: "center",
-    borderRightWidth: 0.75,
-    borderRightColor: BORDER,
-    borderRightStyle: "solid"
-  },
+  width: "13%",
+  paddingVertical: 2,
+  paddingHorizontal: 4,
+  fontWeight: "bold",
+  textAlign: "center",
+  borderRightWidth: 0.6,
+  borderRightColor: BORDER,
+  borderRightStyle: "solid"
+},
 
-  cellRole: {
-    width: "24%",
-    paddingVertical: 8,
-    paddingHorizontal: 7,
-    borderRightWidth: 0.75,
-    borderRightColor: BORDER,
-    borderRightStyle: "solid"
-  },
+cellRole: {
+  width: "21%",
+  paddingVertical: 2,
+  paddingHorizontal: 4,
+  borderRightWidth: 0.6,
+  borderRightColor: BORDER,
+  borderRightStyle: "solid"
+},
 
-  cellDesc: {
-    width: "60%",
-    paddingVertical: 8,
-    paddingHorizontal: 7
-  },
+cellDesc: {
+  width: "66%",
+  paddingVertical: 2,
+  paddingHorizontal: 4,
+  lineHeight: 1.15
+},
 
-  /* ===== SPEAKERS ===== */
-  speakersSection: {
-    marginBottom: 10,
-    flexShrink: 0
-  },
 
-  speakersContainer: {
-    flexDirection: "column",
-    gap: 14
-  },
 
-  speakerBox: {
-    borderWidth: 1.5,
-    borderColor: BORDER,
-    borderStyle: "solid",
-    borderRadius: 5,
-    padding: 14,
-    backgroundColor: "#FFFFFF",
-    marginBottom: 2
-  },
+/* ===== SPEAKERS (COMPACT + MEDIUM PROFESSIONAL) ===== */
 
-  speakerHeader: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "flex-start",
-    marginBottom: 8,
-    flexWrap: "wrap"
-  },
+speakersSection: {
+  marginBottom: 6
+},
 
-  speakerName: {
-    fontSize: 11.5,
+speakersContainer: {
+  flexDirection: "column"
+},
+
+speakerBox: {
+  borderWidth: 0.8,
+  borderColor: BORDER,
+  borderRadius: 4,
+  paddingHorizontal: 6,
+  paddingVertical: 5,
+  backgroundColor: "#FFFFFF",
+  marginBottom: 3,        // tighter gap between speakers
+  breakInside: "auto"
+},
+
+/* Name sits INSIDE each box */
+speakerHeader: {
+  flexDirection: "column",
+  marginBottom: 2
+},
+
+speakerName: {
+  fontSize: 8.6,         // medium size (not tiny)
+  fontWeight: "bold",
+  color: BLUE,
+  marginBottom: 1,
+  lineHeight: 1.15
+},
+
+badgeRow: {
+  flexDirection: "row",
+  flexWrap: "wrap",
+  marginBottom: 2
+},
+
+badge: {
+  fontSize: 7,
+  borderWidth: 0.6,
+  borderColor: BLUE,
+  color: BLUE,
+  paddingVertical: 1,
+  paddingHorizontal: 4,
+  borderRadius: 7,
+  backgroundColor: "rgba(0, 65, 101, 0.06)",
+  marginRight: 3,
+  marginBottom: 2
+},
+
+speakerDetailRow: {
+  flexDirection: "row",
+  marginBottom: 1,
+  alignItems: "flex-start"
+},
+
+speakerLabel: {
+  fontSize: 7.6,
+  fontWeight: "bold",
+  color: DARK_TEXT,
+  width: 54,
+  minWidth: 54,
+  lineHeight: 1.15
+},
+
+speakerValue: {
+  fontSize: 7.6,
+  flexGrow: 1,
+  lineHeight: 1.15,
+  paddingRight: 2
+}
+,
+  /* ===== FOOTER ===== */
+  footer: {
+  position: "absolute",
+  bottom: 10,
+  left: 26,
+  right: 26,
+  textAlign: "center",
+  fontSize: 7.8,
+  color: BLUE,
+  paddingTop: 4,
+  borderTopWidth: 0.8,
+  borderTopColor: BORDER,
+  borderTopStyle: "solid",
+  backgroundColor: "#FFFFFF"
+},
+
+   /* ===== VALUES & MISSION ===== */
+ topInfoBox: {
+  borderWidth: 0.8,
+  borderRadius: 5,
+  padding: 4,
+  marginBottom: 4
+},
+
+
+
+  topInfoTitle: {
+    fontSize: 10.8,
     fontWeight: "bold",
     color: BLUE,
-    flex: 1,
     marginBottom: 6
   },
 
-  badgeRow: {
+  valuesRow: {
     flexDirection: "row",
-    flexWrap: "nowrap",
-    gap: 8,
-    marginBottom: 4
+    flexWrap: "wrap",
+    gap: 6,
+    marginBottom: 6
   },
 
-  badge: {
-    fontSize: 8.5,
+  valueChip: {
+    fontSize: 8.8,
+    color: BLUE,
     borderWidth: 1,
     borderColor: BLUE,
     borderStyle: "solid",
-    color: BLUE,
     paddingVertical: 3,
-    paddingHorizontal: 7,
-    borderRadius: 12,
-    backgroundColor: "rgba(0, 65, 101, 0.08)"
+    paddingHorizontal: 8,
+    borderRadius: 14,
+    backgroundColor: "rgba(0, 65, 101, 0.07)"
   },
 
-  speakerDetailRow: {
-    flexDirection: "row",
-    marginBottom: 4,
-    alignItems: "flex-start",
-    minHeight: 16
-  },
-
-  speakerLabel: {
+  missionText: {
     fontSize: 9.2,
-    fontWeight: "bold",
-    color: DARK_TEXT,
-    width: 85,
-    minWidth: 85
-  },
-
-  speakerValue: {
-    fontSize: 9.2,
-    flex: 1,
-    lineHeight: 1.4,
-    paddingRight: 5
-  },
-
-  /* ===== FOOTER ===== */
-  footer: {
-    position: "absolute",
-    bottom: 22,
-    left: 30,
-    right: 30,
-    textAlign: "center",
-    fontSize: 9,
-    color: BLUE,
-    paddingTop: 14,
-    borderTopWidth: 1,
-    borderTopColor: BORDER,
-    borderTopStyle: "solid",
-    backgroundColor: "#FFFFFF"
+    lineHeight: 1.45,
+    color: DARK_TEXT
   }
+
 });
 
 /* ================= COMPONENT ================= */
 const ToastmastersPDF = ({ data }) => {
+  
+  const speakersText = (data?.speakers || [])
+  .map(
+    (s, idx) =>
+      `${idx + 1}. ${s.speaker}\n` +
+      `Speech: ${s.title}\n` +
+      `Project: ${s.project}\n` +
+      `Evaluator: ${s.evaluator}\n` +
+      `Pathway: ${s.pathway} | Level: ${s.level}\n`
+  )
+  .join("\n");
+
   if (!data) {
     return (
       <Document>
@@ -308,7 +378,8 @@ const ToastmastersPDF = ({ data }) => {
         </Page>
       </Document>
     );
-  }
+  } 
+  
 
   return (
     <Document>
@@ -322,7 +393,7 @@ const ToastmastersPDF = ({ data }) => {
             </Text>
             <Text style={styles.leftText}>{data.day}, {data.date}</Text>
             <Text style={styles.leftText}>{data.meetingTime?.start} – {data.meetingTime?.end}</Text>
-            <Text style={styles.leftText}>{data.venue}</Text>
+            <Text style={styles.venueText}>{data.venue}</Text>
 
             <Text style={styles.leftSectionTitle}>Leadership Team</Text>
             {data.leadershipTeam?.map((l, i) => (
@@ -377,6 +448,23 @@ const ToastmastersPDF = ({ data }) => {
                 </View>
               </View>
             </View>
+            {/* ===== VALUES + MISSION (NEW) ===== */}
+<View style={styles.topInfoBox}>
+  <Text style={styles.topInfoTitle}>TM Values</Text>
+
+  <View style={styles.valuesRow}>
+    <Text style={styles.valueChip}>Integrity</Text>
+    <Text style={styles.valueChip}>Respect</Text>
+    <Text style={styles.valueChip}>Service</Text>
+    <Text style={styles.valueChip}>Excellence</Text>
+  </View>
+
+  <Text style={styles.topInfoTitle}>Club Mission</Text>
+  <Text style={styles.missionText}>
+    We provide a supportive and positive learning experience in which members are empowered to develop
+    communication and leadership skills, resulting in greater self-confidence and personal growth.
+  </Text>
+</View>
 
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>Meeting Agenda</Text>
@@ -384,58 +472,88 @@ const ToastmastersPDF = ({ data }) => {
               <View style={styles.table}>
                 <View style={styles.tableHeader}>
                   <Text style={[styles.cellTime, styles.tableHeaderText]}>Time</Text>
-                  <Text style={[styles.cellRole, styles.tableHeaderText]}>Role</Text>
-                  <Text style={[styles.cellDesc, styles.tableHeaderText]}>Description</Text>
+                  <Text style={[styles.cellRole, styles.tableHeaderText]}>Role / Speaker</Text>
+<Text style={[styles.cellDesc, styles.tableHeaderText]}>Details</Text>
+
                 </View>
 
-                {data.agenda?.map((item, i) => (
+               {data.agenda?.map((item, i) => (
+
+
                   <View 
                     key={i} 
                     style={[
                       styles.tableRow, 
                       i % 2 === 1 && styles.altRow,
-                      i === data.agenda.length - 1 && styles.lastRow
+                   i === data.agenda.length - 1 && styles.lastRow
+
+
                     ]}
                   >
                     <Text style={styles.cellTime}>{item.time}</Text>
-                    <Text style={styles.cellRole}>{item.role}</Text>
-                    <Text style={styles.cellDesc}>{item.description}</Text>
+
+{/* ROLE COLUMN */}
+<View style={styles.cellRole}>
+  <Text>{item.role}</Text>
+</View>
+
+{/* DETAILS COLUMN */}
+<View style={styles.cellDesc}>
+  {item.role === "Speakers" ? (
+    <View style={styles.speakersContainer}>
+      {data.speakers?.map((s, idx) => (
+        <View key={idx} style={styles.speakerBox}>
+
+          {/* Speaker Name INSIDE box */}
+          <View style={styles.speakerHeader}>
+            <Text style={styles.speakerName}>
+              {idx + 1}. {s.speaker}
+            </Text>
+          </View>
+
+          <View style={styles.speakerDetailRow}>
+            <Text style={styles.speakerLabel}>Speech:</Text>
+            <Text style={styles.speakerValue}>{s.title}</Text>
+          </View>
+
+          <View style={styles.speakerDetailRow}>
+            <Text style={styles.speakerLabel}>Project:</Text>
+            <Text style={styles.speakerValue}>{s.project}</Text>
+          </View>
+
+          <View style={styles.speakerDetailRow}>
+            <Text style={styles.speakerLabel}>Evaluator:</Text>
+            <Text style={styles.speakerValue}>{s.evaluator}</Text>
+          </View>
+
+          <View style={styles.speakerDetailRow}>
+            <Text style={styles.speakerLabel}>Pathway:</Text>
+            <Text style={styles.speakerValue}>
+              {s.pathway} | {s.level}
+            </Text>
+          </View>
+            {/* ✅ NEW TIMING ROW */}
+  <View style={styles.speakerDetailRow}>
+    <Text style={styles.speakerLabel}>Timing:</Text>
+    <Text style={styles.speakerValue}>{s.timing || "—"}</Text>
+  </View>
+
+        </View>
+      ))}
+    </View>
+  ) : (
+    <Text>{item.description}</Text>
+  )}
+</View>
+
+
+
                   </View>
                 ))}
               </View>
             </View>
 
-            <View style={styles.speakersSection}>
-              <Text style={styles.sectionTitle}>Prepared Speakers</Text>
-              <View style={styles.speakersContainer}>
-                {data.speakers?.map((s, i) => (
-                  <View key={i} style={styles.speakerBox}>
-                    <View style={styles.speakerHeader}>
-                      <Text style={styles.speakerName}>{s.speaker}</Text>
-                      <View style={styles.badgeRow}>
-                        <Text style={styles.badge}>Pathway: {s.pathway}</Text>
-                        <Text style={styles.badge}>Level: {s.level}</Text>
-                      </View>
-                    </View>
-                    
-                    <View style={styles.speakerDetailRow}>
-                      <Text style={styles.speakerLabel}>Speech Title:</Text>
-                      <Text style={styles.speakerValue}>{s.title}</Text>
-                    </View>
-                    
-                    <View style={styles.speakerDetailRow}>
-                      <Text style={styles.speakerLabel}>Evaluator:</Text>
-                      <Text style={styles.speakerValue}>{s.evaluator}</Text>
-                    </View>
-                    
-                    <View style={styles.speakerDetailRow}>
-                      <Text style={styles.speakerLabel}>Timing:</Text>
-                      <Text style={styles.speakerValue}>{s.timing}</Text>
-                    </View>
-                  </View>
-                ))}
-              </View>
-            </View>
+            
           </View>
         </View>
 

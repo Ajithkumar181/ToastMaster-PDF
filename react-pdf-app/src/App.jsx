@@ -12,70 +12,71 @@ export default function App() {
 
   meetingTime: {
     start: "5:30 PM",
-    end: "7:00 PM"
+    end: "7:30 PM"
   },
 
   venue: "Lane Consultancy, Perambur",
 
   // 🔹 WORD & IDIOM
-  languageItems: {
-    word: "Resilience",
-    wordMeaning: "The ability to recover quickly from difficulties",
-    wordExample: "Her resilience helped her overcome challenges.",
-    idiom: "Break the ice",
-    idiomMeaning: "To start a conversation in a social setting",
-    idiomExample: "He told a joke to break the ice."
-  },
+languageItems: {
+  word: "Illuminate",
+  wordMeaning: "To make something clear or bright",
+  wordExample: "Examples helped illuminate the topic.",
+  idiom: "Shed light on",
+  idiomMeaning: "To explain clearly",
+  idiomExample: "The talk shed light on the issue."
+},
 
-  // 🔹 LEADERSHIP TEAM
-  leadershipTeam: [
-    { role: "President", name: "TM Stanly Richard" },
-    { role: "VP Education", name: "TM Venkatesh Ramraj" },
-    { role: "VP Membership", name: "TM Rajesh J" },
-    { role: "VP Public Relations", name: "TM Chithra A" },
-    { role: "Secretary", name: "TM Annamalai Ganesh" },
-    { role: "Treasurer", name: "TM Isaac Ankit" },
-    { role: "Sergeant-at-Arms (SAA)", name: "TM Karthick Kandaswamy" }
-  ],
+
+ // 🔹 LEADERSHIP TEAM (Jan–June 2026)
+leadershipTeam: [
+  { role: "President", name: "TM Stanly Richard" },
+  { role: "Vice President Education (VPE)", name: "TM Chithra" },
+  { role: "Vice President Membership (VPM)", name: "TM Karthick" },
+  { role: "Vice President Public Relations (VPPR)", name: "TM Arun Charles" },
+  { role: "Secretary", name: "TM Sivamanokari" },
+  { role: "Treasurer", name: "TM Rajesh" },
+  { role: "Sergeant-at-Arms (SAA)", name: "TM Kirthiga" },
+  
+],
+
 
   // 🔹 ROLE PLAYERS
   roles: [
-    { role: "SAA", name: "TM Ajith Kumar" },
-    { role: "Presiding Officer", name: "TM Priyadarshan" },
-    { role: "TMoD", name: "TM Karthik" },
-    { role: "GE", name: "TM Suresh" },
-    { role: "Timer", name: "TM Manoj" },
-    { role: "Ah Counter", name: "TM Deepak" },
-    { role: "Grammarian", name: "TM Ravi" }
+    { role: "SAA", name: "TM Kirthiga" },
+    { role: "Presiding Officer", name: "TM Stanly Richard" },
+    { role: "TMoD", name: "TM Abu" },
+    { role: "GE", name: "TM Chithra" },
+     { role: "TTM", name: "TM Balaji" }, // ✅ ADDED
+    { role: "Timer", name: "TM Ajith" },
+    { role: "Ah Counter", name: "TM Savitha" },
+    { role: "Grammarian", name: "TM Kirthiga" }
+    
   ],
 
-  // 🔹 SPEAKERS (3 SPEAKERS)
-  speakers: [
-    {
-      speaker: "TM Hariharan",
-      pathway: "Presentation Mastery",
-      level: "Level 1",
-      title: "The Power of Consistency",
-      evaluator: "TM Anand",
-      timing: "5–7 mins"
-    },
-    {
-      speaker: "TM Kavin Kumar",
-      pathway: "Presentation Mastery",
-      level: "Level 2",
-      title: "Small Habits, Big Results",
-      evaluator: "TM Pradeep",
-      timing: "5–7 mins"
-    },
-    {
-      speaker: "TM Nithya Shree",
-      pathway: "Presentation Mastery",
-      level: "Level 1",
-      title: "Confidence Begins Within",
-      evaluator: "TM Lavanya",
-      timing: "5–7 mins"
-    }
-  ],
+// 🔹 SPEAKERS (3 SPEAKERS)
+speakers: [
+  {
+    speaker: "TM Stanly Richard",
+    pathway: "Presentation Mastery",
+    level: "Level 1",
+    project: "Icebreaker",
+    title: "Leading with Awareness, Not Assumptions",
+    evaluator: "TM Jayashree",
+    timing: "5–7 mins"
+  },
+  {
+    speaker: "TM Gopalkrishna Tharoor",
+    pathway: "Presentation Mastery",
+    level: "Level 2",
+    project: "Effective Body Language",
+    title: "My Mentors and How They Paved the Way Forward",
+    evaluator: "TM Hussain",
+    timing: "5–7 mins"
+  },
+  
+],
+
 
   // 🔹 AGENDA
   agenda: [
@@ -298,6 +299,7 @@ export default function App() {
               <option>Strategic Relationships</option>
               <option>Visionary Communication</option>
               <option>Icebreaker Speech</option>
+             
             </select>
 
             <select
@@ -313,6 +315,29 @@ export default function App() {
               <option>Level 5</option>
             </select>
           </div>
+            {/* ✅ PROJECT DROPDOWN */}
+    <select
+      value={s.project}
+      onChange={(e) => updateSpeaker(i, "project", e.target.value)}
+    >
+      <option value="">Select Project</option>
+      <option>Ice Breaker</option>
+      <option>Evaluation and Feedback</option>
+      <option>Effective Body Language</option>
+      <option>Researching and Presenting</option>
+      <option>Persuasive Speaking</option>
+      <option>Using Vocal Variety</option>
+      <option>Connect with Your Audience</option>
+      <option>Dynamic Leadership</option>
+      <option>Toastmaster Mentoring</option>
+      <option>Speech with a purpose</option>
+      <option>Managing difficult audiences</option>
+       <option>Motivate Others</option>
+      <option>Evaluation and Feedback</option>
+      <option>Understanding Your Leadership Style</option>
+      
+              
+    </select>
 
           <input
             placeholder="Speech Title"
