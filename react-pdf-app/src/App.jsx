@@ -17,7 +17,7 @@ export default function App() {
 
   venue: "Lane Consultancy, Perambur",
 
-  // 🔹 WORD & IDIOM
+  // 🔹 WORD & IDIOM hello
 languageItems: {
   word: "Holistic",
   wordMeaning: "Caring for your whole self — mind and body.",
