@@ -437,7 +437,7 @@ const ToastmastersPDF = ({ data }) => {
               <View style={styles.logoRow}>
                 <Image src={logo} style={styles.logo} />
                 <View style={styles.headerText}>
-                  <Text style={styles.clubTitle}>Toastmasters Club Meeting</Text>
+                  <Text style={styles.clubTitle}>Perambur Speakers Toastmasters Club</Text>
                   <Text style={styles.meetingTitle}>
                     Meeting #{data.meetingNumber} • {data.title}
                   </Text>

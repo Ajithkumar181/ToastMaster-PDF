@@ -398,7 +398,6 @@ speakers: [
 
 
 
-
 import { Document, Page, Text, View, StyleSheet, Image } from "@react-pdf/renderer";
 import logo from "./assets/logo.png";
 
@@ -472,50 +471,60 @@ const styles = StyleSheet.create({
     marginRight: 4
   },
 
-  /* ===== HEADER ===== */
-  header: {
-    borderBottomWidth: 3,
-    borderBottomColor: BLUE,
-    borderBottomStyle: "solid",
-    paddingBottom: 18,
-    marginBottom: 22
-  },
+  /* ===== HEADER (Professional + Optimal) ===== */
+header: {
+  borderBottomWidth: 2.5,
+  borderBottomColor: BLUE,
+  borderBottomStyle: "solid",
+  paddingBottom: 12,
+  marginBottom: 14
+},
 
-  logoRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 10
-  },
+logoRow: {
+  flexDirection: "row",
+  alignItems: "flex-start"  // ✅ better for multiline titles
+},
 
-  logo: {
-    width: 62,
-    height: 62,
-    marginRight: 18
-  },
+logo: {
+  width: 58,
+  height: 58,
+  marginRight: 14
+},
 
-  headerText: {
-    flex: 1
-  },
+headerText: {
+  flexGrow: 1,
+  flexShrink: 1  // ✅ avoids overflow
+},
 
-  clubTitle: {
-    fontSize: 21,
-    fontWeight: "bold",
-    color: BLUE,
-    marginBottom: 5
-  },
+clubTitle: {
+  fontSize: 19,
+  fontWeight: "bold",
+  color: BLUE,
+  marginBottom: 3,
+  lineHeight: 1.1
+},
 
-  meetingTitle: {
-    fontSize: 13.5,
-    fontWeight: "bold",
-    color: DARK_TEXT,
-    marginBottom: 7
-  },
+meetingTitle: {
+  fontSize: 12.8,
+  fontWeight: "bold",
+  color: DARK_TEXT,
+  marginBottom: 5,
+  lineHeight: 1.15
+},
 
-  subHeader: {
-    fontSize: 9.8,
-    color: BLUE,
-    marginBottom: 2
-  },
+subHeader: {
+  fontSize: 9.4,
+  color: BLUE,
+  marginBottom: 2,
+  lineHeight: 1.25
+},
+
+venueText: {
+  fontSize: 9.4,
+  color: BLUE,
+  lineHeight: 1.25,
+  flexShrink: 1
+},
 
   /* ===== SECTION ===== */
   section: {
@@ -605,82 +614,101 @@ const styles = StyleSheet.create({
   },
 
   /* ===== SPEAKERS ===== */
-  speakersSection: {
-    marginBottom: 10,
-    flexShrink: 0
-  },
+  /* ===== SPEAKERS ===== */
+speakersSection: {
+  marginBottom: 18
+},
 
-  speakersContainer: {
-    flexDirection: "column",
-    gap: 14
-  },
+speakersContainer: {
+  flexDirection: "column"
+  // ❌ remove gap (React-PDF issue)
+},
 
-  speakerBox: {
-    borderWidth: 1.5,
-    borderColor: BORDER,
-    borderStyle: "solid",
-    borderRadius: 5,
-    padding: 14,
-    backgroundColor: "#FFFFFF",
-    marginBottom: 2
-  },
+speakerBox: {
+  borderWidth: 1.5,
+  borderColor: BORDER,
+  borderStyle: "solid",
+  borderRadius: 6,
+  padding: 12,
+  backgroundColor: "#FFFFFF",
+  marginBottom: 12,
 
-  speakerHeader: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "flex-start",
-    marginBottom: 8,
-    flexWrap: "wrap"
-  },
+  // ✅ prevents ugly split
+  breakInside: "avoid"
+},
 
-  speakerName: {
-    fontSize: 11.5,
-    fontWeight: "bold",
-    color: BLUE,
-    flex: 1,
-    marginBottom: 6
-  },
+speakerHeader: {
+  flexDirection: "row",
+  justifyContent: "space-between",
+  alignItems: "flex-start",
+  marginBottom: 6,
+  flexWrap: "wrap"
+},
 
-  badgeRow: {
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    gap: 8,
-    marginBottom: 4
-  },
+speakerName: {
+  fontSize: 11.2,
+  fontWeight: "bold",
+  color: BLUE,
+  flexGrow: 1,
+  flexShrink: 1,
+  marginBottom: 6,
+  paddingRight: 8
+},
 
-  badge: {
-    fontSize: 8.5,
-    borderWidth: 1,
-    borderColor: BLUE,
-    borderStyle: "solid",
-    color: BLUE,
-    paddingVertical: 3,
-    paddingHorizontal: 7,
-    borderRadius: 12,
-    backgroundColor: "rgba(0, 65, 101, 0.08)"
-  },
+badgeRow: {
+  flexDirection: "row",
 
-  speakerDetailRow: {
-    flexDirection: "row",
-    marginBottom: 4,
-    alignItems: "flex-start",
-    minHeight: 16
-  },
+  // ✅ allow wrap instead of overflow
+  flexWrap: "wrap",
 
-  speakerLabel: {
-    fontSize: 9.2,
-    fontWeight: "bold",
-    color: DARK_TEXT,
-    width: 85,
-    minWidth: 85
-  },
+  // ❌ remove gap
+  marginBottom: 2
+},
 
-  speakerValue: {
-    fontSize: 9.2,
-    flex: 1,
-    lineHeight: 1.4,
-    paddingRight: 5
-  },
+badge: {
+  fontSize: 8.2,
+  borderWidth: 1,
+  borderColor: BLUE,
+  borderStyle: "solid",
+  color: BLUE,
+  paddingVertical: 3,
+  paddingHorizontal: 7,
+  borderRadius: 12,
+  backgroundColor: "rgba(0, 65, 101, 0.08)",
+
+  // ✅ spacing instead of gap
+  marginRight: 6,
+  marginBottom: 6
+},
+
+speakerDetailRow: {
+  flexDirection: "row",
+  marginBottom: 4,
+  alignItems: "flex-start"
+  // ❌ remove minHeight (causes clipping with long values)
+},
+
+speakerLabel: {
+  fontSize: 9.1,
+  fontWeight: "bold",
+  color: DARK_TEXT,
+
+  // ✅ slightly smaller width so long values fit
+  width: 78,
+  minWidth: 78
+},
+
+speakerValue: {
+  fontSize: 9.1,
+
+  // ✅ important for wrapping
+  flexGrow: 1,
+  flexShrink: 1,
+
+  lineHeight: 1.4,
+  paddingRight: 6
+},
+
 
   /* ===== FOOTER ===== */
   footer: {
@@ -697,6 +725,49 @@ const styles = StyleSheet.create({
     borderTopStyle: "solid",
     backgroundColor: "#FFFFFF"
   }
+  ,  /* ===== VALUES & MISSION ===== */
+  topInfoBox: {
+    borderWidth: 1.2,
+    borderColor: BORDER,
+    borderStyle: "solid",
+    borderRadius: 6,
+    padding: 12,
+    marginBottom: 18,
+    backgroundColor: "#FFFFFF"
+  },
+
+  topInfoTitle: {
+    fontSize: 10.8,
+    fontWeight: "bold",
+    color: BLUE,
+    marginBottom: 6
+  },
+
+  valuesRow: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 6,
+    marginBottom: 10
+  },
+
+  valueChip: {
+    fontSize: 8.8,
+    color: BLUE,
+    borderWidth: 1,
+    borderColor: BLUE,
+    borderStyle: "solid",
+    paddingVertical: 3,
+    paddingHorizontal: 8,
+    borderRadius: 14,
+    backgroundColor: "rgba(0, 65, 101, 0.07)"
+  },
+
+  missionText: {
+    fontSize: 9.2,
+    lineHeight: 1.45,
+    color: DARK_TEXT
+  }
+
 });
 
 /* ================= COMPONENT ================= */
@@ -723,7 +794,7 @@ const ToastmastersPDF = ({ data }) => {
             </Text>
             <Text style={styles.leftText}>{data.day}, {data.date}</Text>
             <Text style={styles.leftText}>{data.meetingTime?.start} – {data.meetingTime?.end}</Text>
-            <Text style={styles.leftText}>{data.venue}</Text>
+            <Text style={styles.venueText}>{data.venue}</Text>
 
             <Text style={styles.leftSectionTitle}>Leadership Team</Text>
             {data.leadershipTeam?.map((l, i) => (
@@ -778,6 +849,23 @@ const ToastmastersPDF = ({ data }) => {
                 </View>
               </View>
             </View>
+            {/* ===== VALUES + MISSION (NEW) ===== */}
+<View style={styles.topInfoBox}>
+  <Text style={styles.topInfoTitle}>TM Values</Text>
+
+  <View style={styles.valuesRow}>
+    <Text style={styles.valueChip}>Integrity</Text>
+    <Text style={styles.valueChip}>Respect</Text>
+    <Text style={styles.valueChip}>Service</Text>
+    <Text style={styles.valueChip}>Excellence</Text>
+  </View>
+
+  <Text style={styles.topInfoTitle}>Club Mission</Text>
+  <Text style={styles.missionText}>
+    We provide a supportive and positive learning experience in which members are empowered to develop
+    communication and leadership skills, resulting in greater self-confidence and personal growth.
+  </Text>
+</View>
 
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>Meeting Agenda</Text>
@@ -806,7 +894,7 @@ const ToastmastersPDF = ({ data }) => {
               </View>
             </View>
 
-            <View style={styles.speakersSection}>
+            <View style={styles.speakersSection} break>
               <Text style={styles.sectionTitle}>Prepared Speakers</Text>
               <View style={styles.speakersContainer}>
                 {data.speakers?.map((s, i) => (

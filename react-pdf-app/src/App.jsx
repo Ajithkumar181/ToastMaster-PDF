@@ -19,12 +19,12 @@ export default function App() {
 
   // 🔹 WORD & IDIOM
 languageItems: {
-  word: "Illuminate",
-  wordMeaning: "To make something clear or bright",
-  wordExample: "Examples helped illuminate the topic.",
-  idiom: "Shed light on",
-  idiomMeaning: "To explain clearly",
-  idiomExample: "The talk shed light on the issue."
+  word: "Holistic",
+  wordMeaning: "Caring for your whole self — mind and body.",
+  wordExample: "She lives a holistic life.",
+  idiom: "An apple a day keeps the doctor away",
+  idiomMeaning: "Healthy habits prevent illness.",
+  idiomExample: "He eats well every day."
 },
 
 
