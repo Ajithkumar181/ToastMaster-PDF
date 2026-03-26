@@ -1,277 +1,424 @@
-/* ===== Global Reset ===== */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* ===== THEME VARIABLES ===== */
+:root {
+  --navy: #1E3A5F;
+  --gold: #D4AF37;
+  --bg: #F8FAFC;
+  --text: #0F172A;
+  --border: #E5E7EB;
 }
 
-html {
-  -webkit-text-size-adjust: 100%;
-  scroll-behavior: smooth;
+/* ===== RESET ===== */
+* {
+  box-sizing: border-box;
 }
 
 body {
-  font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
-  background: #f1f4f9;
-  color: #1f2937;
-  line-height: 1.5;
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6; /* 🔥 more readable */
 }
 
-/* ===== Container ===== */
+/* ===== CONTAINER ===== */
 .container {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px 16px;
+  max-width: 1050px;
+  margin: 40px auto;
+  padding: 24px;
 }
 
-/* ===== Headings ===== */
+/* ===== HEADINGS ===== */
 h2 {
-  font-size: clamp(22px, 4vw, 26px);
-  font-weight: 600;
-  margin-bottom: 20px;
-  color: #111827;
-  line-height: 1.3;
+  text-align: center;
+  margin-bottom: 35px; /* 🔥 more spacing */
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--navy);
 }
 
 h3 {
-  font-size: clamp(16px, 3vw, 18px);
+  margin-bottom: 14px;
+  margin-top: 28px; /* 🔥 section separation */
+  color: var(--navy);
   font-weight: 600;
-  margin: 20px 0 12px;
-  color: #1f2937;
-  line-height: 1.4;
+  border-left: 5px solid var(--gold);
+  padding-left: 10px;
 }
 
-/* ===== Cards ===== */
-.card,
-.speaker-card {
+.sub-title {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #64748b;
+}
+
+/* ===== CARD ===== */
+.card {
   background: #ffffff;
-  border-radius: 10px;
-  padding: clamp(14px, 3vw, 16px);
-  margin-bottom: 16px;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
-  transition: box-shadow 0.2s ease;
+  border-radius: 16px;
+  padding: 22px; /* 🔥 more breathing */
+  margin-bottom: 28px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transition: 0.2s ease;
 }
 
-.card:hover,
-.speaker-card:hover {
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+.card:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
-/* ===== Inputs & Selects ===== */
+/* ===== ROLE ROW ===== */
+.role-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0; /* 🔥 more spacing */
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.role-row:last-child {
+  border-bottom: none;
+}
+
+.role-name {
+  font-weight: 600;
+  color: var(--navy);
+  min-width: 240px;
+}
+
+/* ===== INPUT & SELECT ===== */
 input,
 select {
-  width: 100%;
-  padding: 12px 14px;
-  margin-bottom: 12px;
-  border-radius: 8px;
-  border: 1px solid #d1d5db;
-  font-size: 16px;
-  transition: all 0.2s ease;
-  background: #ffffff;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-/* Improve mobile touch targets */
-input[type="text"],
-input[type="email"],
-input[type="tel"] {
-  min-height: 48px;
-}
-
-select {
-  min-height: 48px;
-  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%231F2937%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
-  background-repeat: no-repeat;
-  background-position: right 14px center;
-  background-size: 12px auto;
-  padding-right: 40px;
-}
-
-input::placeholder {
-  color: #9ca3af;
-  opacity: 1;
+  flex: 1;
+  padding: 12px 14px; /* 🔥 bigger touch area */
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  font-size: 14px;
+  background: #fafafa;
+  transition: 0.2s ease;
 }
 
 input:focus,
 select:focus {
   outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  border-color: var(--gold);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
 }
 
-/* Remove default focus styles for mouse users, keep for keyboard */
-input:focus:not(:focus-visible),
-select:focus:not(:focus-visible) {
-  box-shadow: none;
-}
-
-/* ===== Role Rows ===== */
-.role-row {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-  margin-bottom: 12px;
-  align-items: start;
-}
-
-.role-name {
-  font-weight: 500;
-  color: #374151;
-  font-size: 15px;
-  padding: 4px 0;
-}
-
-/* ===== Speaker Layout ===== */
+/* ===== TWO COLUMN ===== */
 .two-col {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
+  display: flex;
+  gap: 14px;
+  margin-top: 10px;
 }
 
-/* ===== Buttons ===== */
+/* ===== BUTTON BASE ===== */
 .btn {
+  background: var(--navy);
+  color: #ffffff;
+  border: none;
+
+  padding: 0 14px;
+  height: 36px;
+
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  margin-top: 12px;
-  padding: 14px 20px;
-  border-radius: 8px;
-  border: none;
-  background: linear-gradient(135deg, #2563eb, #1e40af);
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: 500;
+
   cursor: pointer;
   transition: all 0.2s ease;
-  min-height: 50px;
-  text-decoration: none;
-  position: relative;
-  overflow: hidden;
-}
-
-.btn:active {
-  transform: scale(0.98);
+  white-space: nowrap;
 }
 
 .btn:hover {
-  background: linear-gradient(135deg, #1e40af, #1e3a8a);
-  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+  background: #162d4a;
+  box-shadow: 0 4px 12px rgba(30, 58, 95, 0.25);
 }
 
-/* Improve focus accessibility */
-.btn:focus {
-  outline: 2px solid #2563eb;
-  outline-offset: 2px;
+/* ===== BUTTON GROUP FIX ===== */
+.button-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
-/* ===== Responsive ===== */
-@media (min-width: 480px) {
+/* ===== EDIT BUTTON ===== */
+.btn.edit {
+  background: #f1f5f9;
+  color: var(--navy);
+}
+
+.btn.edit:hover {
+  background: #e2e8f0;
+}
+
+/* ===== SPEAKER CARD ===== */
+.speaker-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 18px; /* 🔥 spacious */
+  margin-bottom: 18px;
+  border-left: 5px solid var(--gold);
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== DIVIDER ===== */
+.divider {
+  margin: 20px 0;
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+/* ===== BUTTON GROUP ===== */
+/* ===== BUTTON ROW ===== */
+.button-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* ===== BUTTON BASE ===== */
+.btn {
+  height: 36px;
+  padding: 0 16px;
+  font-size: 13px;
+  border-radius: 8px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  background: var(--navy);
+  color: #fff;
+}
+
+/* ===== HOVER ===== */
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(30, 58, 95, 0.2);
+}
+
+/* ===== PRIMARY ACTION ===== */
+.btn.gold {
+  background: var(--gold);
+  color: #111;
+  font-weight: 600;   /* 🔥 highlight */
+}
+
+/* ===== BUTTON GROUP VARIANT ===== */
+.button-row.primary {
+  justify-content: space-between; /* 🔥 better layout for actions */
+}
+
+/* ===== BUTTON GROUP CENTERED ===== */
+.button-row.center {
+  justify-content: center;
+}
+/* ===== CARD HEADER ===== */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+/* ===== DELETE BUTTON ===== */
+.delete-btn {
+  background: transparent;
+  border: none;
+  color: #ef4444; /* red */
+  font-size: 16px;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.delete-btn:hover {
+  background: #fee2e2;
+}
+
+
+
+/* ===== ERROR TEXT ===== */
+.error {
+  color: #dc2626;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+/* ===== HOVER ===== */
+.role-row:hover {
+  background: #f8fafc;
+  border-radius: 8px;
+}
+
+/* ========================================= */
+/* 📱 MOBILE */
+/* ========================================= */
+
+@media (max-width: 768px) {
   .container {
-    padding: 24px 20px;
+    padding: 16px;
+    margin: 20px auto;
   }
-  
-  .two-col {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  }
-}
 
-@media (min-width: 640px) {
-  .container {
-    padding: 32px 24px;
-    margin: 40px auto;
-  }
-  
-  .role-row {
-    grid-template-columns: 220px 1fr;
-    align-items: center;
-    gap: 16px;
-  }
-  
-  .two-col {
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-  
-  .btn {
-    width: auto;
-    min-width: 180px;
-    padding: 12px 24px;
-  }
-}
-
-@media (min-width: 768px) {
   h2 {
-    margin-bottom: 24px;
+    font-size: 22px;
   }
-  
-  h3 {
-    margin: 24px 0 16px;
+
+  .card {
+    padding: 16px;
   }
-  
-  .card,
-  .speaker-card {
-    padding: 20px;
-    margin-bottom: 20px;
+
+  .role-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
-  
+
+  .role-name {
+    min-width: unset;
+    font-size: 14px;
+  }
+
   input,
   select {
-    margin-bottom: 14px;
+    width: 100%;
   }
-}
 
-@media (min-width: 1024px) {
-  .container {
-    padding: 40px 32px;
+  .two-col {
+    flex-direction: column;
   }
-}
 
-/* ===== Utility Classes ===== */
-/* Hide scrollbar for Chrome, Safari and Opera */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-.no-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-
-/* Safe area insets for modern mobile devices */
-@supports (padding: max(0px)) {
-  .container {
-    padding-left: max(16px, env(safe-area-inset-left));
-    padding-right: max(16px, env(safe-area-inset-right));
+  .button-row {
+    flex-direction: column;
   }
-  
+
   .btn {
-    margin-bottom: env(safe-area-inset-bottom, 0px);
+    width: 100%;
   }
 }
 
-/* Print styles */
-@media print {
-  body {
-    background: white;
+/* ========================================= */
+/* 💻 LARGE DESKTOP */
+/* ========================================= */
+
+@media (max-width: 768px) {
+  /* ===== CONTAINER ===== */
+  .container {
+    padding: 14px;
+    margin: 10px auto;
   }
-  
-  .card,
+
+  h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+  /* ===== CARD ===== */
+  .card {
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  /* ===== ROLE ROW ===== */
+  .role-row {
+    flex-direction: column;
+    align-items: stretch;   /* 🔥 full width fields */
+    gap: 8px;
+    padding: 12px 0;
+  }
+
+  .role-name {
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  /* ===== INPUTS ===== */
+  input,
+  select {
+    width: 100%;
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  /* ===== TWO COLUMN → STACK ===== */
+  .two-col {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* ===== SPEAKER CARD ===== */
   .speaker-card {
-    border: 1px solid #ddd;
-    box-shadow: none;
-    page-break-inside: avoid;
+    padding: 14px;
   }
-  
+
+  /* ===== BUTTON GROUP ===== */
+  .button-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* ===== BUTTON FIX ===== */
   .btn {
-    display: none;
+    width: 100%;
+    height: 40px;           /* 🔥 bigger tap area */
+    font-size: 14px;
+  }
+
+  /* ===== EDIT BUTTON ALIGNMENT ===== */
+  /* ===== SECTION HEADER ===== */
+/* ===== SECTION HEADER (PERFECT ALIGNMENT) ===== */
+/* ===== SECTION HEADER (PERFECT ALIGNMENT) ===== */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;   /* 🔥 vertical alignment fix */
+  gap: 12px;
+  margin-top: 28px;
+  margin-bottom: 10px;
+}
+
+/* REMOVE extra margin from h3 inside header */
+.section-header h3 {
+  margin: 0;
+}
+
+/* ===== BUTTON FIX ===== */
+.section-header .btn {
+  height: 34px;
+  padding: 0 12px;
+  font-size: 13px;
+}
+}
+@media (max-width: 768px) {
+  .section-header {
+    flex-direction: row;   /* 🔥 keep inline */
+    align-items: center;
+  }
+
+  .section-header .btn {
+    width: auto;           /* 🔥 prevent full width */
   }
 }

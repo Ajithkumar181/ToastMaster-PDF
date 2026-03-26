@@ -3,12 +3,15 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 import ToastmastersPDF from "./ToastmastersPDF";
 
 export default function App() {
+  const [showEdu, setShowEdu] = useState(false);
+  const [editLeadership, setEditLeadership] = useState(false);
  const [meeting, setMeeting] = useState({
-  meetingNumber: 300,
+  meetingNumber: 317,
 
-  title: "Weekly Toastmasters Meeting",
-  date: "2025-12-06",
+  title: "The Environment of Leaders",
+ date: new Date().toISOString().split("T")[0],
   day: "Saturday",
+
 
   meetingTime: {
     start: "5:30 PM",
@@ -19,14 +22,14 @@ export default function App() {
 
   // 🔹 WORD & IDIOM hello hhh
 languageItems: {
-  word: "Holistic",
-  wordMeaning: "Caring for your whole self — mind and body.",
-  wordExample: "She lives a holistic life.",
-  idiom: "An apple a day keeps the doctor away",
-  idiomMeaning: "Healthy habits prevent illness.",
-  idiomExample: "He eats well every day."
-},
-
+  word: "Cultivate",
+  wordMeaning: "To develop or improve over time.",
+  wordExample: "Great leaders cultivate trust and growth.",
+  idiom: "Set the tone",
+  idiomMeaning: "To establish the atmosphere or standard.",
+  idiomExample: "A leader sets the tone through actions."
+}
+,
 
  // 🔹 LEADERSHIP TEAM (Jan–June 2026)
 leadershipTeam: [
@@ -42,55 +45,78 @@ leadershipTeam: [
 
 
   // 🔹 ROLE PLAYERS
+ // 🔹 ROLE PLAYERS
   roles: [
     { role: "SAA", name: "TM Kirthiga" },
     { role: "Presiding Officer", name: "TM Stanly Richard" },
-    { role: "TMoD", name: "TM Abu" },
-    { role: "GE", name: "TM Chithra" },
-     { role: "TTM", name: "TM Balaji" }, // ✅ ADDED
-    { role: "Timer", name: "TM Ajith" },
-    { role: "Ah Counter", name: "TM Savitha" },
-    { role: "Grammarian", name: "TM Kirthiga" }
-    
+    { role: "Toastmaster of the Day (TMoD)", name: "TM Arun (Successful Club Series)" },
+    { role: "General Evaluator (GE)", name: "TM Ajit Kumar" },
+    { role: "Table Topics Master (TTM)", name: "TM Issac" },
+    { role: "Timer", name: "TM Savitha" },
+    { role: "Ah Counter", name: "TM Helen" },
+    { role: "Grammarian", name: "TM Aishwarya" }
   ],
 
-// 🔹 SPEAKERS (3 SPEAKERS)
+  // 🔹 EDUCATIONAL SESSION
+educationalSessions: [],
+
+// 🔹 SPEAKERS
 speakers: [
-  {
-    speaker: "TM Stanly Richard",
-    pathway: "Presentation Mastery",
-    level: "Level 1",
-    project: "Icebreaker",
-    title: "Leading with Awareness, Not Assumptions",
-    evaluator: "TM Jayashree",
-    timing: "5–7 mins"
-  },
-  {
-    speaker: "TM Gopalkrishna Tharoor",
-    pathway: "Presentation Mastery",
-    level: "Level 2",
-    project: "Effective Body Language",
-    title: "My Mentors and How They Paved the Way Forward",
-    evaluator: "TM Hussain",
-    timing: "5–7 mins"
-  },
-  
-],
+    {
+      speaker: "TM Chithra",
+      pathway: "Motivational Strategies",
+      level: "Level 3",
+      project: "Journaling The Emotions",
+      title: "The Mirror",
+      evaluator: "TM Karthick",
+      reviewer: "TM Sindhu",
+      timing: "5–7 mins"
+    },
+    {
+      speaker: "TM Stanly Richard",
+      pathway: "Persuasive Influence",
+      level: "Level 2",
+      project: "Introduction to Toastmasters Mentoring",
+      title: "The First Believer",
+      evaluator: "TM Gopalkrishna Tharoor",
+      reviewer: "DTM Saro Vel",
+      timing: "5–7 mins"
+    },
+    {
+      speaker: "TM Vinoth",
+      pathway: "Presentation Mastery",
+      level: "Level 1",
+      project: "Writing a Speech with Purpose",
+      title: "Pressure Makes Diamonds",
+      evaluator: "TM Ganesh",
+      reviewer: "TM Arun Charles",
+      timing: "5–7 mins"
+    }
+  ],
 
 
-  // 🔹 AGENDA
-  agenda: [
-    { time: "5:15 PM", role: "All", description: "Assembly time and networking" },
-    { time: "5:30 PM", role: "SAA", description: "Calls the meeting to order and introduces Presiding Officer" },
-    { time: "5:32 PM", role: "Presiding Officer", description: "Opens the meeting, welcomes guests" },
-    { time: "5:35 PM", role: "TMoD", description: "Introduces the theme and explains the meeting structure" },
-    { time: "5:40 PM", role: "General Evaluator", description: "Explains evaluation team roles" },
-    { time: "5:50 PM", role: "Speakers", description: "Prepared Speech Session" },
-    { time: "6:15 PM", role: "Table Topics Master", description: "Table Topics Session" },
-    { time: "6:31 PM", role: "GE", description: "Evaluation Segment" },
-    { time: "6:55 PM", role: "TMoD", description: "Handover to Presiding Officer" },
-    { time: "6:57 PM", role: "Presiding Officer", description: "Closing remarks and meeting adjournment" }
-  ]
+// 🔹 AGENDA (Final – Ends at 7:30 PM)
+
+agenda: [
+  { time: "5:15 PM", role: "All", description: "Assembly time and networking" },
+  { time: "5:30 PM", role: "SAA", description: "Calls the meeting to order and introduces Presiding Officer" },
+  { time: "5:32 PM", role: "Presiding Officer", description: "Opens the meeting, welcomes guests" },
+  { time: "5:35 PM", role: "TMoD", description: "Introduces the theme and explains the meeting structure" },
+  { time: "5:40 PM", role: "General Evaluator", description: "Explains evaluation team roles" },
+
+  // 🎤 Prepared Speeches
+  { time: "5:50 PM", role: "Speakers", description: "Prepared Speech Session" },
+
+  // 🎯 Table Topics
+  { time: "6:35 PM", role: "Table Topics Master", description: "Table Topics Session" },
+
+  // 📝 Evaluation + Closing
+  { time: "7:00 PM", role: "General Evaluator", description: "Evaluation Segment + TMoD Handover" },
+  { time: "7:20 PM", role: "Presiding Officer", description: "Closing remarks and meeting adjournment" },
+  { time: "7:30 PM", role: "All", description: "Official Meeting End" }
+]
+
+
 });
 
 
@@ -165,6 +191,12 @@ speakers: [
     });
   };
 
+  const updateLeadership = (index, value) => {
+  const arr = [...meeting.leadershipTeam];
+  arr[index].name = value;
+  setMeeting({ ...meeting, leadershipTeam: arr });
+};
+
   return (
     <div className="container">
       <h2>Toastmasters PDF Generator</h2>
@@ -221,6 +253,44 @@ speakers: [
           </div>
         ))}
       </div>
+      {/* Leadership Team */}
+<div className="section-header">
+  <h3>Leadership Team</h3>
+
+  <button
+  onClick={() => setEditLeadership(!editLeadership)}
+  className="btn"
+  style={{
+    background: editLeadership ? "#D4AF37" : "#f1f5f9", // gold when active
+    color: editLeadership ? "#111" : "#1E3A5F",
+    border: "1px solid #E5E7EB"
+  }}
+>
+  {editLeadership ? "✔ Done" : "✏ Edit"}
+</button>
+</div>
+{/* Edit leadership */}
+<div className="card">
+  {meeting.leadershipTeam.map((l, i) => (
+    <div className="role-row" key={i}>
+      <span className="role-name">{l.role}</span>
+
+      {editLeadership ? (
+        <input
+          placeholder="Member Name"
+          value={l.name}
+          onChange={(e) => {
+            const arr = [...meeting.leadershipTeam];
+            arr[i].name = e.target.value;
+            setMeeting({ ...meeting, leadershipTeam: arr });
+          }}
+        />
+      ) : (
+        <span>{l.name}</span>
+      )}
+    </div>
+  ))}
+</div>
 
       {/* Word & Idiom */}
       <h3>Word & Idiom of the Day</h3>
@@ -276,6 +346,19 @@ speakers: [
       <h3>Speakers</h3>
       {meeting.speakers.map((s, i) => (
         <div className="speaker-card" key={i}>
+           <div className="card-header">
+    <span>Speaker {i + 1}</span>
+
+    <button
+      className="delete-btn"
+      onClick={() => {
+        const arr = meeting.speakers.filter((_, idx) => idx !== i);
+        setMeeting({ ...meeting, speakers: arr });
+      }}
+    >
+      ✖
+    </button>
+  </div>
           <input
             placeholder="Speaker Name"
             value={s.speaker}
@@ -315,29 +398,13 @@ speakers: [
               <option>Level 5</option>
             </select>
           </div>
-            {/* ✅ PROJECT DROPDOWN */}
-    <select
-      value={s.project}
-      onChange={(e) => updateSpeaker(i, "project", e.target.value)}
-    >
-      <option value="">Select Project</option>
-      <option>Ice Breaker</option>
-      <option>Evaluation and Feedback</option>
-      <option>Effective Body Language</option>
-      <option>Researching and Presenting</option>
-      <option>Persuasive Speaking</option>
-      <option>Using Vocal Variety</option>
-      <option>Connect with Your Audience</option>
-      <option>Dynamic Leadership</option>
-      <option>Toastmaster Mentoring</option>
-      <option>Speech with a purpose</option>
-      <option>Managing difficult audiences</option>
-       <option>Motivate Others</option>
-      <option>Evaluation and Feedback</option>
-      <option>Understanding Your Leadership Style</option>
-      
-              
-    </select>
+           {/* ✅ PROJECT INPUT (Manual typing) */}
+<input
+  type="text"
+  placeholder="Enter Project"
+  value={s.project}
+  onChange={(e) => updateSpeaker(i, "project", e.target.value)}
+/>
 
           <input
             placeholder="Speech Title"
@@ -365,31 +432,131 @@ speakers: [
           </div>
         </div>
       ))}
+      {showEdu && (
+  <>
+    <h3>Educational Session</h3>
 
-        <button onClick={addSpeaker} className="btn">
-        ➕ Add Speaker
-      </button>
+    {meeting.educationalSessions.map((e, i) => (
+      <div key={i} className="speaker-card">
+        <div className="card-header">
+    <span>Session {i + 1}</span>
 
-      {/* ERROR MESSAGE */}
-      {error && <p style={{ color: "red" }}>{error}</p>}
+    <button
+      className="delete-btn"
+      onClick={() => {
+        const arr = meeting.educationalSessions.filter((_, idx) => idx !== i);
+        setMeeting({ ...meeting, educationalSessions: arr });
+      }}
+    >
+      ✖
+    </button>
+  </div>
+        <input
+          placeholder="Topic"
+          value={e.topic}
+          onChange={(ev) => {
+            const arr = [...meeting.educationalSessions];
+            arr[i].topic = ev.target.value;
+            setMeeting({ ...meeting, educationalSessions: arr });
+          }}
+        />
 
-      {/* STEP 1: VALIDATE + PREPARE DATA */}
-      <button className="btn" onClick={handleGeneratePDF}>
-        ✔ Validate Data
-      </button>
+        <input
+          placeholder="Presenter"
+          value={e.presenter}
+          onChange={(ev) => {
+            const arr = [...meeting.educationalSessions];
+            arr[i].presenter = ev.target.value;
+            setMeeting({ ...meeting, educationalSessions: arr });
+          }}
+        />
 
-      {/* STEP 2: DOWNLOAD PDF ONLY IF DATA IS VALID */}
-      {pdfData && (
-        <PDFDownloadLink
-          document={<ToastmastersPDF data={pdfData} />}
-          fileName="Toastmasters-Meeting.pdf"
-          className="btn"
-        >
-          {({ loading }) =>
-            loading ? "Generating PDF..." : "⬇ Download PDF"
-          }
-        </PDFDownloadLink>
-      )}
+        <input
+          placeholder="Duration"
+          value={e.duration}
+          onChange={(ev) => {
+            const arr = [...meeting.educationalSessions];
+            arr[i].duration = ev.target.value;
+            setMeeting({ ...meeting, educationalSessions: arr });
+          }}
+        />
+      </div>
+    ))}
+
+    {/* Add more sessions */}
+   
+  </>
+)}
+
+      
+     
+{/* <div className="button-row">
+  <button
+    onClick={() =>
+      setMeeting({
+        ...meeting,
+        educationalSessions: [
+          ...meeting.educationalSessions,
+          { topic: "", presenter: "", duration: "" }
+        ]
+      })
+    }
+    className="btn"
+  >
+    ➕ Add More Session
+  </button>
+</div> */}
+
+
+{/* ➕ Add Speaker / Educational */}
+<div className="button-row">
+  <button onClick={addSpeaker} className="btn">
+    ➕ Add Speaker
+  </button>
+
+  <button
+    onClick={() => {
+      setShowEdu(true);
+
+      if (meeting.educationalSessions.length === 0) {
+        setMeeting({
+          ...meeting,
+          educationalSessions: [
+            { topic: "", presenter: "", duration: "" }
+          ]
+        });
+      }
+    }}
+    className="btn"
+  >
+    ➕ Add Educational Session
+  </button>
+</div>
+
+
+{/* ❌ Error */}
+{error && <p className="error">{error}</p>}
+
+
+
+<div className="button-row">
+  <button className="btn gold" onClick={handleGeneratePDF}>
+    ✔ Validate Data
+  </button>
+
+  {pdfData && (
+    <PDFDownloadLink
+      document={<ToastmastersPDF data={pdfData} />}
+      fileName="Toastmasters-Meeting.pdf"
+      className="btn"
+    >
+      {({ loading }) =>
+        loading ? "Generating..." : "⬇ Download PDF"
+      }
+    </PDFDownloadLink>
+  )}
+</div>
+      
     </div>
   );
 }

@@ -10,12 +10,12 @@ const DARK_TEXT = "#111827";
 
 const styles = StyleSheet.create({
  page: {
-  padding: 22,
-  paddingBottom: 24,
-  fontSize: 7.6,
+  padding: 18,
+  paddingBottom: 20,
+  fontSize: 7.2,
   fontFamily: "Helvetica",
   color: DARK_TEXT,
-  lineHeight: 1.15,
+  lineHeight: 1.05,
   backgroundColor: "#FFFFFF"
 },
 
@@ -77,8 +77,8 @@ header: {
   borderBottomWidth: 2,
   borderBottomColor: BLUE,
   borderBottomStyle: "solid",
-  paddingBottom: 8,
-  marginBottom: 8
+  paddingBottom: 5,
+  marginBottom: 5
 },
 
 
@@ -126,7 +126,7 @@ venueText: {
 
   /* ===== SECTION ===== */
   section: {
-  marginBottom: 8,
+  marginBottom: 5,
   flexShrink: 0
 },
 
@@ -134,9 +134,9 @@ venueText: {
  sectionTitle: {
   backgroundColor: BLUE,
   color: "#FFFFFF",
-  paddingVertical: 3,
+  paddingVertical: 2,
   paddingHorizontal: 8,
-  fontSize: 9.5,
+  fontSize: 8.6,
   fontWeight: "bold",
   marginBottom: 4,
   borderRadius: 3
@@ -165,8 +165,8 @@ venueText: {
  tableHeaderText: {
   color: BLUE,
   fontWeight: "bold",
-  fontSize: 9,
-  paddingVertical: 4,
+  fontSize: 8.2,
+  paddingVertical: 3,
   paddingHorizontal: 4,
   textAlign: "left"
 },
@@ -177,7 +177,7 @@ venueText: {
   borderBottomWidth: 0.6,
   borderBottomColor: BORDER,
   borderBottomStyle: "solid",
-  paddingVertical: 2,
+  paddingVertical: 1.5,
   alignItems: "flex-start"
 },
 
@@ -215,7 +215,7 @@ cellDesc: {
   width: "66%",
   paddingVertical: 2,
   paddingHorizontal: 4,
-  lineHeight: 1.15
+  lineHeight: 1.05
 },
 
 
@@ -231,13 +231,13 @@ speakersContainer: {
 },
 
 speakerBox: {
-  borderWidth: 0.8,
+  borderWidth: 0.6,
   borderColor: BORDER,
-  borderRadius: 4,
-  paddingHorizontal: 6,
-  paddingVertical: 5,
+  borderRadius: 3,
+  paddingHorizontal: 4,
+  paddingVertical: 3,
   backgroundColor: "#FFFFFF",
-  marginBottom: 3,        // tighter gap between speakers
+  marginBottom: 2,        // tighter gap between speakers
   breakInside: "auto"
 },
 
@@ -248,7 +248,7 @@ speakerHeader: {
 },
 
 speakerName: {
-  fontSize: 8.6,         // medium size (not tiny)
+  fontSize: 7.8,         // medium size (not tiny)
   fontWeight: "bold",
   color: BLUE,
   marginBottom: 1,
@@ -276,21 +276,21 @@ badge: {
 
 speakerDetailRow: {
   flexDirection: "row",
-  marginBottom: 1,
+  marginBottom: 0.5,
   alignItems: "flex-start"
 },
 
 speakerLabel: {
-  fontSize: 7.6,
+  fontSize: 7,
   fontWeight: "bold",
   color: DARK_TEXT,
-  width: 54,
+  width: 48,
   minWidth: 54,
   lineHeight: 1.15
 },
 
 speakerValue: {
-  fontSize: 7.6,
+  fontSize: 7,
   flexGrow: 1,
   lineHeight: 1.15,
   paddingRight: 2
@@ -311,6 +311,7 @@ speakerValue: {
   borderTopStyle: "solid",
   backgroundColor: "#FFFFFF"
 },
+
 
    /* ===== VALUES & MISSION ===== */
  topInfoBox: {
@@ -358,7 +359,16 @@ speakerValue: {
 
 /* ================= COMPONENT ================= */
 const ToastmastersPDF = ({ data }) => {
-  
+  console.log(data);
+//   const educationalSessions = [
+//   {
+//     sessionType: "Table Topics",
+//     title: "Two Minutes of Win",
+//     facilitator: "DTM Arthi Manglam Jayaraj",
+//     timing: "40 mins"
+//   }
+// ];
+
   const speakersText = (data?.speakers || [])
   .map(
     (s, idx) =>
@@ -499,8 +509,74 @@ const ToastmastersPDF = ({ data }) => {
 
 {/* DETAILS COLUMN */}
 <View style={styles.cellDesc}>
-  {item.role === "Speakers" ? (
+  
+   {item.role === "Speakers" ? (
     <View style={styles.speakersContainer}>
+
+      {/* ✅ ADD THIS BLOCK */}
+     {/* {EDUCATIONAL_SESSIONS.map((session, idx) => (
+  <View key={idx} style={styles.speakerBox}>
+
+    <View style={styles.speakerHeader}>
+      <Text style={styles.speakerName}>
+        {session.sessionType}
+      </Text>
+    </View>
+
+    <View style={styles.speakerDetailRow}>
+      <Text style={styles.speakerLabel}>Session:</Text>
+      <Text style={styles.speakerValue}>{session.title}</Text>
+    </View>
+
+    <View style={styles.speakerDetailRow}>
+      <Text style={styles.speakerLabel}>Facilitator:</Text>
+      <Text style={styles.speakerValue}>{session.facilitator}</Text>
+    </View>
+
+    <View style={styles.speakerDetailRow}>
+      <Text style={styles.speakerLabel}>Timing:</Text>
+      <Text style={styles.speakerValue}>{session.timing}</Text>
+    </View>
+
+  </View>
+))} */}
+
+   {/* Displaying educational session */}
+
+    {data.educationalSessions?.length > 0 && (
+  <>
+    {data.educationalSessions.map((e, idx) => (
+      <View key={idx} style={styles.speakerBox}>
+
+        {/* Title */}
+        <View style={styles.speakerHeader}>
+          <Text style={styles.speakerName}>
+            🎓 Educational Session {idx + 1}
+          </Text>
+        </View>
+
+        <View style={styles.speakerDetailRow}>
+          <Text style={styles.speakerLabel}>Topic:</Text>
+          <Text style={styles.speakerValue}>{e.topic}</Text>
+        </View>
+
+        <View style={styles.speakerDetailRow}>
+          <Text style={styles.speakerLabel}>Presenter:</Text>
+          <Text style={styles.speakerValue}>{e.presenter}</Text>
+        </View>
+
+        <View style={styles.speakerDetailRow}>
+          <Text style={styles.speakerLabel}>Duration:</Text>
+          <Text style={styles.speakerValue}>{e.duration}</Text>
+        </View>
+
+      </View>
+    ))}
+  </>
+)}
+   
+
+
       {data.speakers?.map((s, idx) => (
         <View key={idx} style={styles.speakerBox}>
 
@@ -540,6 +616,9 @@ const ToastmastersPDF = ({ data }) => {
 
         </View>
       ))}
+     
+
+
     </View>
   ) : (
     <Text>{item.description}</Text>
@@ -566,3 +645,9 @@ const ToastmastersPDF = ({ data }) => {
 };
 
 export default ToastmastersPDF;
+
+
+
+
+
+
